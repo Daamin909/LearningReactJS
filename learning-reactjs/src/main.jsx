@@ -1,3 +1,2 @@
-const hello =  (message) => console.log(message);
-
-hello('Hello World!');
+import { feed } from "./feed";
+feed();
