@@ -1,0 +1,35 @@
+
+.taskCard{
+    display: grid;
+    grid-row: 2;
+    margin: 15px 0;
+    padding: 15px 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: #ffffff;
+}
+.nextRow{
+    position: relative;
+    bottom: px;
+}
+.taskName{
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 1px;
+    text-wrap: wrap;
+    color: white;
+}
+.divider{
+    margin-bottom: 10px;
+}
+.deleteTask{
+    background-color: black;
+    color: white;
+    position: absolute;
+    right: 0px;
+    font-size: 22px;
+    font-weight: 100;
+    border: none;
+    cursor: pointer;
+
+}

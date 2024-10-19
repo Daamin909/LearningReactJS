@@ -1,0 +1,10 @@
+.taskColumn {
+  width: 33.33%;
+  margin: 20px;
+}
+.taskColumn > h2 {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: white;
+}

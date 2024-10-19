@@ -1,0 +1,12 @@
+body{
+  background-color: black;
+}
+.app {
+  display: grid;
+  grid-template-rows: 150px auto;
+}
+.appMain{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 8%;
+}
