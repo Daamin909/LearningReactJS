@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = () => {
+const MovieList = ({ type, title }) => {
   const api_key = import.meta.env.VITE_API_KEY;
   const [popularMovies, setPopularMovies] = useState([]);
   const [filteredPopularMovies, setFilteredPopularMovies] = useState([]);
@@ -19,9 +19,20 @@ const MovieList = () => {
     fetchMovies();
   }, []);
 
+  useEffect(() => {
+    if (sort.by !== "default") {
+      const sortedMovies = _.orderBy(
+        filteredPopularMovies,
+        [sort.by],
+        [sort.order]
+      );
+      setFilteredPopularMovies(sortedMovies);
+    }
+  }, [sort]);
+
   const fetchMovies = async () => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=${api_key}`
     );
     const data = await response.json();
     setPopularMovies(data.results);
@@ -47,9 +58,9 @@ const MovieList = () => {
   };
 
   return (
-    <section className="movie_list">
+    <section className="movie_list" id={type}>
       <header className="align_center movie_list_header">
-        <h2 className="align_center movie_list_heading">Popular 🔥</h2>
+        <h2 className="align_center movie_list_heading">{title}</h2>
         <div className="align_center movie_list_fs">
           <FilterGroup
             onRatingClick={handleFilter}
