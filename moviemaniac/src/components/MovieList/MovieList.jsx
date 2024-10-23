@@ -7,8 +7,8 @@ import FilterGroup from "./FilterGroup";
 
 const MovieList = ({ type, title }) => {
   const api_key = import.meta.env.VITE_API_KEY;
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [filteredPopularMovies, setFilteredPopularMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
   const [sort, setSort] = useState({
     by: "default",
@@ -22,11 +22,11 @@ const MovieList = ({ type, title }) => {
   useEffect(() => {
     if (sort.by !== "default") {
       const sortedMovies = _.orderBy(
-        filteredPopularMovies,
+        filteredMovies,
         [sort.by],
         [sort.order]
       );
-      setFilteredPopularMovies(sortedMovies);
+      setFilteredMovies(sortedMovies);
     }
   }, [sort]);
 
@@ -35,20 +35,20 @@ const MovieList = ({ type, title }) => {
       `https://api.themoviedb.org/3/movie/${type}?api_key=${api_key}`
     );
     const data = await response.json();
-    setPopularMovies(data.results);
-    setFilteredPopularMovies(data.results);
+    setMovies(data.results);
+    setFilteredMovies(data.results);
   };
 
   const handleFilter = (rate) => {
     if (rate === minRating) {
       setMinRating(0);
-      setFilteredPopularMovies(popularMovies);
+      setFilteredMovies(movies);
     } else {
       setMinRating(rate);
-      const filtered = popularMovies.filter(
+      const filtered = movies.filter(
         (movie) => movie.vote_average >= rate
       );
-      setFilteredPopularMovies(filtered);
+      setFilteredMovies(filtered);
     }
   };
 
@@ -91,7 +91,7 @@ const MovieList = ({ type, title }) => {
         </div>
       </header>
       <div className="movie_cards">
-        {filteredPopularMovies.map((movie) => {
+        {filteredMovies.map((movie) => {
           return <MovieCard movie={movie} key={movie.id} />;
         })}
       </div>
