@@ -17,15 +17,11 @@ const MovieList = ({ type, title }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [type]);
 
   useEffect(() => {
     if (sort.by !== "default") {
-      const sortedMovies = _.orderBy(
-        filteredMovies,
-        [sort.by],
-        [sort.order]
-      );
+      const sortedMovies = _.orderBy(filteredMovies, [sort.by], [sort.order]);
       setFilteredMovies(sortedMovies);
     }
   }, [sort]);
@@ -45,9 +41,7 @@ const MovieList = ({ type, title }) => {
       setFilteredMovies(movies);
     } else {
       setMinRating(rate);
-      const filtered = movies.filter(
-        (movie) => movie.vote_average >= rate
-      );
+      const filtered = movies.filter((movie) => movie.vote_average >= rate);
       setFilteredMovies(filtered);
     }
   };
