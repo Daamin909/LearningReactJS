@@ -1,12 +1,12 @@
 import React from "react";
 
 import "./FeaturedProducts.css";
-import ProductCard from "./ProductCard";
+import ProductCard from "../Products/ProductCard";
 const FeaturedProducts = () => {
   return (
     <section className="featured-products">
       <h2>Featured Products</h2>
-      <div className="align-center featured-products-list"> 
+      <div className="align-center featured-products-list">
         <ProductCard />
         <ProductCard />
         <ProductCard />

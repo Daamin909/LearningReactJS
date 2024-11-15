@@ -1,6 +1,6 @@
 import React from "react";
 
-import iphone from "../../assets/img/iphone-14-pro.webp";
+import iphone from "../../assets/img/iphone.jpg";
 import star from "../../assets/img/white-star.png";
 import basket from "../../assets/img/basket.png";
 import "./ProductCard.css";
