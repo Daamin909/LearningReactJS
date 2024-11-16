@@ -17,7 +17,9 @@
   border-radius: 5px;
   padding: 3px;
 }
-
+.navbar-links > a.active {
+  font-weight: 700;
+}
 .navbar-search {
   height: 100%;
   width: 203px;

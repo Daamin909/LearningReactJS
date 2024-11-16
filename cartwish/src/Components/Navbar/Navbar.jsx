@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Navbar.css";
 import LinkWithIcon from "./LinkWithIcon";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -26,9 +27,9 @@ const Navbar = () => {
         <LinkWithIcon title={"Signup 📝"} link={"/signup"} />
         <LinkWithIcon title={"My Orders 🛒"} link={"/myorders"} />
         <LinkWithIcon title={"Logout 🔐"} link={"/logout"} />
-        <a href="/cart" className="align-center">
+        <NavLink to="/cart" className="align-center">
           Cart <p className="align-center cart_counts">0</p>
-        </a>
+        </NavLink>
       </div>
     </nav>
   );

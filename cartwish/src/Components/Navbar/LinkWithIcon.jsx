@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./LinkWithIcon.css";
+import { NavLink } from "react-router-dom";
 
-const LinkWithIcon = ({ title, link, sidebar }) => {
+const LinkWithIcon = ({ title, link, sidebar, emoji }) => {
   return (
-    <a href={link} className={sidebar ? "sidebar-link" : "align-center"}>
-      {title}
-    </a>
+    <NavLink to={link} className={sidebar ? "sidebar-link" : "align-center"}>
+      {title} {emoji && <img src={emoji} alt="" className="link-emoji" />}
+    </NavLink>
   );
 };
 
